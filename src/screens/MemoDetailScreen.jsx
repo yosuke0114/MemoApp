@@ -61,3 +61,5 @@ const styles = StyleSheet.create({
     lineHeight: 24,
   },
 });
+
+/* eslint linebreak-style: ["error", "windows"] */

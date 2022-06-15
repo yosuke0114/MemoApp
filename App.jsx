@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
+import firebase from 'firebase';
 
 import MemoListScreen from './src/screens/MemoLIstScreen';
 import MemoDetailScreen from './src/screens/MemoDetailScreen';
@@ -9,13 +10,19 @@ import MemoCreateScreen from './src/screens/MemoCreateScreen';
 import LogInScreen from './src/screens/LogInScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
 
+import { firebaseConfig } from './env';
+
 const Stack = createStackNavigator();
+
+if (firebase.apps.length === 0) {
+  firebase.initializeApp(firebaseConfig);
+}
 
 export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="SignUp"
+        initialRouteName="LogIn"
         screenOptions={{
           headerStyle: { backgroundColor: '#467FD3' },
           headerTitleStyle: { color: '#ffffff' },
@@ -32,18 +39,18 @@ export default function App() {
         <Stack.Screen name="MemoEdit" component={MemoEditScreen} />
         <Stack.Screen name="MemoCreate" component={MemoCreateScreen} />
         <Stack.Screen
-         name="LogIn"
-         component={LogInScreen}
-         options={{
-           cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid,
-         }}
+          name="LogIn"
+          component={LogInScreen}
+          options={{
+            cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid,
+          }}
         />
         <Stack.Screen
-         name="SignUp"
-         component={SignUpScreen}
-         options={{
-          cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid,
-        }}
+          name="SignUp"
+          component={SignUpScreen}
+          options={{
+            cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid,
+          }}
         />
       </Stack.Navigator>
 
@@ -51,4 +58,4 @@ export default function App() {
   );
 }
 
-/* eslint linebreak-style: ["error", "windows"] */
+//* eslint linebreak-style: ["error", "windows"] *//

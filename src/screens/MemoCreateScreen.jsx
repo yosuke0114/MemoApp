@@ -13,8 +13,8 @@ export default function MemoCreateScreen(props) {
         <TextInput value="" multiline style={styles.input} />
       </View>
       <CircleButton
-      name="check"
-      onPress={() => { navigation.goBack(); }}
+        name="check"
+        onPress={() => { navigation.goBack(); }}
       />
     </KeyboardAvoidingView>
   );
