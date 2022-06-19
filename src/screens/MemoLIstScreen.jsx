@@ -17,7 +17,7 @@ export default function MemoListScreen(props) {
   }, {});
 
   useEffect(() => {
-    const db = firebase.firebase();
+    const db = firebase.firestore();
     const { currentUser } = firebase.auth();
     let unsubscribe = () => {};
     if (currentUser) {
